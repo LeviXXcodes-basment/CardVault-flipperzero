@@ -10,6 +10,20 @@ CardVault moves your saved cards off the open file system and into an encrypted 
 
 ---
 
+## 📸 Screenshots
+
+<p align="center">
+  <img src="screenshots/pin.png" width="30%" alt="PIN unlock screen">
+  <img src="screenshots/menu-top.png" width="30%" alt="Main menu with live card count">
+  <img src="screenshots/my-vault.png" width="30%" alt="My Vault list">
+</p>
+<p align="center">
+  <img src="screenshots/secure-notes.png" width="30%" alt="Secure Notes list">
+  <img src="screenshots/menu-bottom.png" width="30%" alt="Main menu (Secure Notes, Change PIN, About)">
+</p>
+
+---
+
 ## ✨ Features
 
 - **4-digit PIN gate** — set on first launch, required every time.
@@ -76,4 +90,4 @@ MIT — see [LICENSE](LICENSE).
 
 ## 🙋 Author
 
-**LeviXX** X Claude
+**LeviXX** · built with help from Claude.
