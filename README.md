@@ -76,4 +76,4 @@ MIT — see [LICENSE](LICENSE).
 
 ## 🙋 Author
 
-**LeviXX** · built with help from Claude.
+**LeviXX** X Claude
