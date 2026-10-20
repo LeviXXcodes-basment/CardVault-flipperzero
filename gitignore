@@ -1,0 +1,13 @@
+# ufbt / build artifacts
+.ufbt/
+dist/
+build/
+*.fap
+*.o
+*.d
+
+# Editor / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

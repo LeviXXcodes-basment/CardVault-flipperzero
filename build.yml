@@ -1,0 +1,50 @@
+name: Build FAP
+
+on:
+  push:
+    branches: [main, master]
+    tags: ["v*"]
+  pull_request:
+    branches: [main, master]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install ufbt
+        run: pip install ufbt
+
+      - name: Update SDK (release channel)
+        run: ufbt update --channel=release
+
+      - name: Build FAP
+        run: ufbt
+
+      - name: Locate built .fap
+        id: fap
+        run: |
+          FAP=$(find .ufbt dist -name 'cardvault.fap' 2>/dev/null | head -n1)
+          echo "path=$FAP" >> "$GITHUB_OUTPUT"
+          echo "Built: $FAP"
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: cardvault-fap
+          path: ${{ steps.fap.outputs.path }}
+          if-no-files-found: error
+
+      - name: Attach to release
+        if: startsWith(github.ref, 'refs/tags/v')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: ${{ steps.fap.outputs.path }}
